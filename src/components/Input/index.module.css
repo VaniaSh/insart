@@ -1,0 +1,7 @@
+.button {
+    opacity: 0;
+}
+
+.input:focus + .button {
+    opacity: 1;
+}
