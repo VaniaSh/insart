@@ -1,14 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './index.module.css'
 import {Table} from "react-bootstrap";
+import {TableDataProps} from "./type";
 
-export interface TableDataProps {
-    itemId: number,
-    ccy: string,
-    base_ccy: string,
-    buy: number,
-    sale: number,
-}
+
 
 const CurrencyExchange = () => {
     const [data, setData] = useState<TableDataProps[]>([
@@ -44,6 +39,9 @@ const CurrencyExchange = () => {
 
         setData(editData)
     }
+    // useEffect(() => {
+    //     fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5').then(res => res.json()).then(res => console.log(res))
+    // }, [])
 
     return (
         <div className={styles.container}>

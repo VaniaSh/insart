@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {CurrencyExchange, Footer, Header} from "./components";
-import Test from "./components/Test";
+import Test from "./components/Convertor";
 
 
 
