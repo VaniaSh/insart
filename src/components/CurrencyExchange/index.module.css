@@ -31,7 +31,7 @@ tr td {
     text-align: left;
 }
 
-input {
+.inputMain {
     font-size: 16px;
     background-color: transparent;
     border: none;
@@ -40,11 +40,18 @@ input {
     font-family: 'Poppins', sans-serif;
 }
 
-input:hover {
+.inputMain:hover {
     background-color: lavender;
 }
 
-input:focus {
-  border: none;
+.inputMain:focus {
+    border: none;
     outline: none;
+}
+
+.inputsContainer {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    gap: 40px;
 }

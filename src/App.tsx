@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import {Table} from "react-bootstrap";
 import {CurrencyExchange, Footer, Header} from "./components";
+import Test from "./components/Test";
 
 
 
@@ -10,6 +10,7 @@ function App() {
       <div className={'wrapper'}>
           <Header/>
           <CurrencyExchange/>
+          <Test/>
           <Footer/>
       </div>
 

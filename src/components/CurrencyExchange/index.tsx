@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import {Table} from "react-bootstrap";
+import React, {useState} from 'react';
 import styles from './index.module.css'
-import Input from "../Input";
+import {Table} from "react-bootstrap";
 
 export interface TableDataProps {
     itemId: number,
@@ -32,7 +31,6 @@ const CurrencyExchange = () => {
 
         }
     ])
-    const [badRequest, setBadRequest] = useState<number>(0)
 
     const onChangeInput = (e: any, employeeId: any) => {
         const {name, value} = e.target
@@ -46,16 +44,6 @@ const CurrencyExchange = () => {
 
         setData(editData)
     }
-
-
-    useEffect(() => {
-
-        fetch('https://api.privatbank.ua/p24api/pubinfo?exchange&coursid=5', {
-            credentials: "omit"
-        })
-            .then(res => console.log(res))
-    }, [])
-
 
     return (
         <div className={styles.container}>
@@ -74,6 +62,7 @@ const CurrencyExchange = () => {
                             <td>{ccy} / {base_ccy}</td>
                             <td>
                                 <input
+                                    className={'inputMain'}
                                     name="buy"
                                     value={buy}
                                     type="text"
@@ -83,6 +72,8 @@ const CurrencyExchange = () => {
                             </td>
                             <td>
                                 <input
+                                    className={'inputMain'}
+
                                     name="sale"
                                     value={sale}
                                     type="text"
@@ -94,10 +85,6 @@ const CurrencyExchange = () => {
                 }
                 </tbody>
             </Table>
-            <div style={{display: "flex", gap: '20px'}}>
-                <Input/>
-                <Input/>
-            </div>
         </div>
     );
 };
