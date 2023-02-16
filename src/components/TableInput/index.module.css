@@ -1,0 +1,39 @@
+.inputWithIcon {
+    position: relative;
+}
+
+.inputT{
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    width: 70%;
+    cursor: pointer;
+    height: 100%;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+
+}
+.inputT:focus{
+    border-bottom: 2px solid black;
+}
+.icon {
+    position: relative;
+    right: 45px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.searchIcon.show:hover,
+.focusIcon.show:hover {
+    opacity: 1;
+}
+
+.searchIcon.show {
+    opacity: 1;
+}
+
+.focusIcon.show {
+    opacity: 1;
+}

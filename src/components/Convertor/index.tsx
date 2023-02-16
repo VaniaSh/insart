@@ -10,8 +10,6 @@ const Convertor = () => {
         convertTo: "UAH",
         result: "",
     });
-    const [badRequest, setBadRequest] = useState<number>(1)
-    const [error, setError] = useState<string>('')
 
     const {currencies, base, amount, convertTo, result} = initialState;
 
@@ -19,7 +17,7 @@ const Convertor = () => {
         if (amount === isNaN) {
             return;
         } else {
-            const getCurrencyconvertTor = async () => {
+            const getCurrency = async () => {
                 const response = await axios.get(
                     `https://api.exchangerate.host/latest?base=${base}`
                 );
@@ -30,7 +28,7 @@ const Convertor = () => {
                     result,
                 });
             };
-            getCurrencyconvertTor();
+            getCurrency();
         }
     }, [amount, base, convertTo]);
 
@@ -75,8 +73,6 @@ const Convertor = () => {
                 </h3>
             </div>
             <div className="row">
-                {
-                    error ? <h1>Server Error</h1> :
                         <div className="row-lg-10">
                             <Input
                                 iName={'1'}
@@ -89,9 +85,9 @@ const Convertor = () => {
                                 selectValue={base}
                                 handleSelect={handleSelect}/>
 
-                            <div onClick={handleSwap}
-                                 style={{cursor: "pointer", fontSize: 40, textAlign: 'center'}}>
-                                &#8595;&#8593;
+                            <div
+                                style={{fontSize: 40, textAlign: 'center'}}>
+                                <span onClick={handleSwap}>&#8595;&#8593;</span>
                             </div>
                             <Input
                                 disabled={true}
@@ -109,7 +105,7 @@ const Convertor = () => {
                                 selectValue={convertTo}
                                 handleSelect={handleSelect}/>
                         </div>
-                }
+
 
             </div>
             </div>
