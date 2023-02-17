@@ -4,7 +4,7 @@ import styles from './index.module.css'
 const Footer = () => {
     return (
         <div className={styles.footerContainer}>
-            Created by Vania Shepetko
+            2023 all right reserved
         </div>
     );
 };

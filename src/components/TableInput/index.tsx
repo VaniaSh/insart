@@ -35,7 +35,6 @@ const InputT:FC<TableInput> = ({name, value, onChange, min, max}) => {
         setIsFocused(false);
     };
 
-    console.log(min, ':min', max, ':max', value, ': value', prev, 'prev')
     return (
         <div className={styles.inputWithIcon}
              onMouseEnter={handleMouseEnter}
@@ -57,7 +56,6 @@ const InputT:FC<TableInput> = ({name, value, onChange, min, max}) => {
              </span>
             <button
                 // disabled={(prev && prev > max) || (prev && prev < min)}
-                onClick={() => console.log(value, ':val', min, ':min', max, ':max')}
                 className={`${styles.icon} ${styles.focusIcon} ${isFocused ? styles.show : ''}`}>
                 <BsCheckLg/>
             </button>

@@ -1,17 +1,7 @@
 import React, {FC} from 'react';
 import styles from './index.module.css'
+import {InputProps} from "./type";
 
-interface InputProps {
-   type: string
-    value: any
-    currencies: any
-    onChange: any
-    handleSelect: any
-    selectValue: any
-    name: string
-    disabled: boolean
-    iName: string
-}
 
 const Input: FC<InputProps> = ({iName, disabled, type, onChange, value, currencies, handleSelect, selectValue, name}) => {
     return (
@@ -22,7 +12,9 @@ const Input: FC<InputProps> = ({iName, disabled, type, onChange, value, currenci
                 disabled={disabled}
                 className={styles.currencyInput}
                 onChange={onChange}
-                type={type} value={value}
+                type={type}
+                value={value}
+                min={0}
 
             />
             <select name={name} className={styles.currencySelect} onChange={handleSelect}

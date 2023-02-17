@@ -8,10 +8,10 @@
     background-color: aliceblue;
     padding: 10px 20px;
     border-radius: 10px;
-    border: 1px solid lightblue;
+    border: 2px solid #4f94c0;
 
 }
 .currencyInput:focus, .currencySelect:focus{
     outline: none;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    box-shadow: rgba(99, 99, 99, 0.7) 0 2px 8px 0;
 }

@@ -28,10 +28,6 @@ const CurrencyExchange = () => {
     ])
     const onChangeInput = (e: any, employeeId: any) => {
         const {name, value} = e.target
-        console.log('name', name)
-        console.log('value', value)
-        console.log('employeeId', employeeId)
-
         const editData = data.map((item) =>
             item.itemId === employeeId && name ? {...item, [name]: value} : item
         )
@@ -61,13 +57,19 @@ const CurrencyExchange = () => {
                         <tr key={key}>
                             <td>{ccy} / {base_ccy}</td>
                             <td>
-                                {buy}
+                                <InputT
+                                    name="buy"
+                                    value={buy}
+                                    onChange={(e: any) => onChangeInput(e, itemId)}
+                                    min={calculateMin(buy)}
+                                    max={calculateMax(buy)}
+                                />
                             </td>
                             <td>
                                 <InputT
                                     name="sale"
                                     value={sale}
-                                    onChange={(e:any) => onChangeInput(e, itemId)}
+                                    onChange={(e: any) => onChangeInput(e, itemId)}
                                     min={calculateMin(sale)}
                                     max={calculateMax(sale)}
                                 />

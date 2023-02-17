@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import {Input} from "../Input";
+import {State} from "./type";
 
-jest.mock('axios')
 
 const Convertor = () => {
-    const [initialState, setState] = useState<any>({
+    const [initialState, setState] = useState<State>({
         currencies: ["USD", "GBR", "EUR", "CAD", 'UAH', 'BTC'],
         base: "USD",
-        amount: "",
+        amount: 1,
         convertTo: "UAH",
         result: "",
     });
@@ -61,17 +61,21 @@ const Convertor = () => {
     return (
         <div style={{maxWidth: 800, width: '100%'}} className="container ml-5">
             <div style={{textAlign: 'center'}}>
-                <h5>
-                    {amount} {base} is equivalent to{" "}
-                </h5>
-                <h3>
-                    {amount === ""
-                        ? "0"
-                        : result === null
-                            ? "Calculating ..."
-                            : result}
-                    {convertTo}
-                </h3>
+                    {
+                        amount < 0  ? <h5 style={{color: 'red'}}>Please write number bigger than 0</h5> : <h5>{amount} {base} is equivalent to{" "}</h5>
+                    }
+                {
+                    amount > 0 ? <h3>
+                        {amount === ""
+                            ? "0"
+                            : result === null
+                                ? "Calculating ..."
+                                : result
+                        }
+                        {convertTo}
+                    </h3> :
+                        <h3 style={{color: 'red'}}>Error</h3>
+                }
             </div>
             <div className="row">
                         <div className="row-lg-10">
@@ -80,7 +84,7 @@ const Convertor = () => {
                                 disabled={false}
                                 name={'base'}
                                 type="number"
-                                value={amount}
+                                value={amount }
                                 currencies={currencies}
                                 onChange={onChangeInput}
                                 selectValue={base}
@@ -103,6 +107,7 @@ const Convertor = () => {
                                             : result
                                 } currencies={currencies}
                                 onChange={onChangeInput}
+                                error={amount < 0 ? 'Error' : undefined}
                                 selectValue={convertTo}
                                 handleSelect={handleSelect}/>
                         </div>

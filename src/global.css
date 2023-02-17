@@ -7,7 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
   box-sizing: border-box;
-
+  background-image: linear-gradient(to right top, #ffffff, #e2e5f2, #bdcde6, #90b8d7, #58a4c5);
 }
 
 code {
