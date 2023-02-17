@@ -84,7 +84,7 @@ const Convertor = () => {
                                 disabled={false}
                                 name={'base'}
                                 type="number"
-                                value={amount }
+                                value={amount}
                                 currencies={currencies}
                                 onChange={onChangeInput}
                                 selectValue={base}
@@ -105,6 +105,7 @@ const Convertor = () => {
                                         : result === null
                                             ? "Calculating..."
                                             : result
+
                                 } currencies={currencies}
                                 onChange={onChangeInput}
                                 error={amount < 0 ? 'Error' : undefined}

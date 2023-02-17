@@ -1,9 +1,11 @@
 import React, {FC} from 'react';
 import styles from './index.module.css'
 import {InputProps} from "./type";
+import {Simulate} from "react-dom/test-utils";
+import error = Simulate.error;
 
 
-const Input: FC<InputProps> = ({iName, disabled, type, onChange, value, currencies, handleSelect, selectValue, name}) => {
+const Input: FC<InputProps> = ({iName, error, disabled, type, onChange, value, currencies, handleSelect, selectValue, name}) => {
     return (
         <div className={styles.group}>
             <input
@@ -13,7 +15,7 @@ const Input: FC<InputProps> = ({iName, disabled, type, onChange, value, currenci
                 className={styles.currencyInput}
                 onChange={onChange}
                 type={type}
-                value={value}
+                value={error ? 0: value}
                 min={0}
 
             />
