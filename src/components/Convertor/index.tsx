@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Input from "../Input";
+import {Input} from "../Input";
+
+jest.mock('axios')
 
 const Convertor = () => {
     const [initialState, setState] = useState<any>({
@@ -21,7 +23,6 @@ const Convertor = () => {
                 const response = await axios.get(
                     `https://api.exchangerate.host/latest?base=${base}`
                 );
-                console.log("response==>", response);
                 const result = (response.data.rates[convertTo] * amount).toFixed(3);
                 setState({
                     ...initialState,
@@ -87,7 +88,7 @@ const Convertor = () => {
 
                             <div
                                 style={{fontSize: 40, textAlign: 'center'}}>
-                                <span onClick={handleSwap}>&#8595;&#8593;</span>
+                                <span data-testingid={'r'} onClick={handleSwap}>&#8595;&#8593;</span>
                             </div>
                             <Input
                                 disabled={true}
@@ -112,4 +113,4 @@ const Convertor = () => {
     );
 };
 
-export default Convertor;
+export {Convertor};

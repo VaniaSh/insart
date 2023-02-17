@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styles from './index.module.css'
 import {Table} from "react-bootstrap";
 import {TableDataProps} from "./type";
-import InputT from "../TableInput";
+import {InputT} from "../TableInput";
 
 
 const CurrencyExchange = () => {
@@ -21,12 +21,11 @@ const CurrencyExchange = () => {
             ccy: 'EUR',
             base_ccy: 'UAH',
             buy: 19.20000,
-            sale: 20.00000,
+            sale: 20.1000,
 
 
         }
     ])
-
     const onChangeInput = (e: any, employeeId: any) => {
         const {name, value} = e.target
         console.log('name', name)
@@ -39,6 +38,13 @@ const CurrencyExchange = () => {
 
         setData(editData)
     }
+    const calculateMin =(variable: number) => {
+        return  variable - variable * 0.1
+    }
+    const calculateMax =(variable: number) => {
+        return  variable + variable * 0.1
+    }
+    console.log(calculateMax(10))
     return (
         <div className={styles.container}>
             <Table bordered>
@@ -51,35 +57,26 @@ const CurrencyExchange = () => {
                 </thead>
                 <tbody>
                 {
-                    data && data.map(({ccy, base_ccy, buy, sale, itemId}) => (
-                        <tr key={itemId}>
+                    data && data.map(({ccy, base_ccy, buy, sale, itemId},key) => (
+                        <tr key={key}>
                             <td>{ccy} / {base_ccy}</td>
                             <td>
-                                <InputT
-                                    className={'inputMain'}
-                                    name="buy"
-                                    value={buy}
-                                    type="text"
-                                    onChange={(e:any) => onChangeInput(e, itemId)}
-                                    placeholder="Type Name"
-                                />
+                                {buy}
                             </td>
                             <td>
-
                                 <InputT
-                                    className={'inputMain'}
                                     name="sale"
                                     value={sale}
-                                    type="text"
                                     onChange={(e:any) => onChangeInput(e, itemId)}
-                                    placeholder="Type Name"
+                                    min={calculateMin(sale)}
+                                    max={calculateMax(sale)}
                                 />
                             </td>
-                        </tr>))
+                        </tr>)
+                    )
                 }
                 </tbody>
             </Table>
-             <InputT/>
         </div>
     );
 };

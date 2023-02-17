@@ -1,3 +1,6 @@
 export {Header} from './Header'
 export {Footer} from './Footer'
 export {CurrencyExchange} from './CurrencyExchange'
+export {Input} from './Input'
+export {InputT} from './TableInput'
+export {Convertor} from './Convertor'

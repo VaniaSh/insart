@@ -36,4 +36,4 @@ const Input: FC<InputProps> = ({iName, disabled, type, onChange, value, currenci
     );
 };
 
-export default Input;
+export {Input};

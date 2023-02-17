@@ -1,16 +1,16 @@
 import React from 'react';
-import './app.module.css';
-import {CurrencyExchange, Footer, Header} from "./components";
-import Test from "./components/Convertor";
+import styles from './index.module.css';
+import {CurrencyExchange, Footer, Header, Convertor} from "./components";
+
 
 
 
 function App() {
   return (
-      <div className={'wrapper'}>
+      <div className={styles.wrapper}>
           <Header/>
           <CurrencyExchange/>
-          <Test/>
+          <Convertor/>
           <Footer/>
       </div>
 
