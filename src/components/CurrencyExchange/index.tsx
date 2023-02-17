@@ -40,7 +40,6 @@ const CurrencyExchange = () => {
     const calculateMax =(variable: number) => {
         return  variable + variable * 0.1
     }
-    console.log(calculateMax(10))
     return (
         <div className={styles.container}>
             <Table bordered>
@@ -54,7 +53,7 @@ const CurrencyExchange = () => {
                 <tbody>
                 {
                     data && data.map(({ccy, base_ccy, buy, sale, itemId},key) => (
-                        <tr key={key}>
+                        <tr key={key.toString()}>
                             <td>{ccy} / {base_ccy}</td>
                             <td>
                                 <InputT

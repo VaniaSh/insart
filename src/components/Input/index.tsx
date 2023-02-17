@@ -1,8 +1,6 @@
 import React, {FC} from 'react';
 import styles from './index.module.css'
 import {InputProps} from "./type";
-import {Simulate} from "react-dom/test-utils";
-import error = Simulate.error;
 
 
 const Input: FC<InputProps> = ({iName, error, disabled, type, onChange, value, currencies, handleSelect, selectValue, name}) => {
@@ -21,8 +19,8 @@ const Input: FC<InputProps> = ({iName, error, disabled, type, onChange, value, c
             />
             <select name={name} className={styles.currencySelect} onChange={handleSelect}
                     value={selectValue}>
-                {currencies.map((currency: string) => (
-                    <option value={currency}>{currency}</option>
+                {currencies.map((currency: string, key: number) => (
+                    <option key={key} value={currency}>{currency}</option>
                 ))}
             </select>
 
