@@ -6,7 +6,7 @@ import {State} from "./type";
 
 const Convertor = () => {
     const [initialState, setState] = useState<State>({
-        currencies: ["USD", "GBR", "EUR", "CAD", 'UAH', 'BTC'],
+        currencies: ["USD", "GBP", "EUR", "CAD", 'UAH', 'BTC'],
         base: "USD",
         amount: 1,
         convertTo: "UAH",
